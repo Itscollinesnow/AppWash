@@ -1,0 +1,96 @@
+/* custom CSS */
+
+body{
+    height: 100%;
+    color: #fff;  
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 350;
+}
+form h4 {
+    margin-bottom: 20px;
+}
+.car-form h4 {
+    margin-bottom: 25px;
+}
+.car-container {
+    padding-top: 30px;
+}
+.navigation{
+    background-color:#dd2922;
+
+}
+.navbar {
+    padding: 0px;
+}
+.navbar-brand {
+    margin-left: 20px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fefefe;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #6a0d0d91;
+}
+.intro {
+    text-align: center;
+    margin: 20px;
+    color: #f7f4f3;
+}
+form h4 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #f7f4f3;
+}
+
+.service-cards {
+    margin: 25px;
+
+}
+.card {
+    opacity: .6;
+    background-color: black;
+    color: #fff;
+}
+.login-bt {
+    float: right;
+    background-color:#dd2922;
+    width: 80px;
+    border-color: #dd2922;
+}
+.reg-body {
+    background : url(../../images/background-image2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.reg-form {
+    margin-top: 30px;
+}
+.reg-bt {
+    background-color:#dd2922;
+    border-color: #dd2922;
+}
+.car-form {
+    padding-top: 10px;
+}
+footer {
+    font-size: 13px;
+}
+.mr-auto {
+    margin: auto!important;
+}
+.zfooter {
+    color: #fff;
+}
+
+.reports {
+    padding-top: 20px;
+}
+.rep-header {
+    text-align: center;
+    margin-bottom: 15px;
+}

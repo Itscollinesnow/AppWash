@@ -1,0 +1,54 @@
+extends layout2.pug
+block header
+    ul#pills-tab.navbar-nav.mr-auto.justify-content-center.nav.nav-pills.mb-3(role="tablist")
+        li.nav-item
+            a#pills-home-tab.nav-link(data-toggle='pill' href='/register/car' role='tab' aria-controls='pills-home' aria-selected='true')
+                span Register Car
+        li.nav-item
+            a#pills-profile-tab.nav-link(data-toggle='pill' href='/register/washer' role='tab' aria-controls='pills-profile' aria-selected='false')
+                span Register Washer
+        li.nav-item
+            a#pills-contact-tab.nav-link(data-toggle='pill' href='/register/expenses' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Add Expenses
+        li.nav-item
+            a#pills-contact-tab.nav-link.active(data-toggle='pill' href='/reports/payout' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Reports 
+    span.navbar-text
+        a.nav-link(href='/')
+            span  Sign Out
+    #pills-tabContent.tab-content
+block content 
+    div.row.d-flex.justify-content-center.reports
+        div#v-pills-tab.nav.flex-column.nav-pills.col-3(role="tablist" aria-orientation="vertical")
+            a#v-pills-messages-tab.nav-link(data-toggle="pill" href="/reports/collection" role="tab" aria-controls="v-pills-messages" aria-selected="false") Collection
+            a#v-pills-home-tab.nav-link(data-toggle="pill" href="/reports/payout" role="tab" aria-controls="v-pills-home" aria-selected="true") Washer Payout
+            a#v-pills-profile-tab.nav-link.active(data-toggle="pill" href="/reports/expenses" role="tab" aria-controls="v-pills-profile" aria-selected="false") Expenses
+            a#v-pills-settings-tab.nav-link(data-toggle="pill" href="/reports/washers" role="tab" aria-controls="v-pills-settings" aria-selected="false") Washer List
+        #v-pills-tabContent.tab-content
+        br
+        div.col-9
+            div.rep-header
+                h4  Expenses Report
+            form.search(action='/reports/expenses')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(type="date" name="searchdate" value=defaultDate)
+                    div.col-md-4
+                        input.btn.btn-primary.btn-block(type="submit")
+            br
+            table.table.table-bordered 
+                thead
+                    tr
+                        th Date of Entry
+                        th Item
+                        th Amount
+                tbody
+                if expenses.length
+                    each expense in expenses
+                        tr
+                            td #{moment(expense.doe).format('DD-MM-YYYY')}
+                            td #{expense.item}
+                            td #{expense.amount}
+                    tr
+                        th(colspan=2) Total Expenses
+                        td #{new Intl.NumberFormat().format(total.totalExpense)}

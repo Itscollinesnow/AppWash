@@ -1,0 +1,41 @@
+extends layout.pug
+block header 
+    ul.navbar-nav.mr-auto
+    span.navbar-text
+        a.nav-link(href='/register')
+            span  Register 
+block content
+    div.intro
+        h2 ZaWash car wash Management
+    div.row.d-flex.justify-content-center
+        div.col-md-5.col-md-offset-5
+            if alert == "error"
+                div.alert.alert-danger An error occurred, invalid username or password
+            form.login-form.align-center(method="POST" action='/login')
+                h4 Please Log In
+                div.form-group.col
+                    input.form-control(type="username" name='username' placeholder="Username")
+                div.form-group.col
+                    input.form-control(type="password" placeholder="Password" name='password')
+                div.form-group.col
+                    button.btn.btn-sm.btn-primary.login-bt(type="submit") Login
+    div.service-cards
+        div.row
+            div.card.col
+                div.card-body
+                    h5.card-title Wash Packages
+                    p.card-text Provide different packages for different car sizes and services
+            div.card.col-lg-3
+                div.card-body
+                    h5.card-title Your work
+                    p.card-text Keep reports on the number of cars washed daily, monthly, annually
+            div.card.col-lg-3
+                div.card-body
+                    h5.card-title The Team
+                    p.card-text Monitor and assign work to members available and keep track of progress
+            div.card.col-lg-3
+                div.card-body
+                    h5.card-title Expenses 
+                    p.card-text Track by recording and keeping an expense report       
+block footer
+        p.zfooter © ZaWash 2021 | Contact Support

@@ -1,0 +1,64 @@
+extends layout2.pug
+block header
+    ul#pills-tab.navbar-nav.mr-auto.justify-content-center.nav.nav-pills(role="tablist")
+        li.nav-item
+            a#pills-home-tab.nav-link.active(data-toggle='pill' href='/register/car' role='tab' aria-controls='pills-home' aria-selected='true')
+                span Register Car
+        li.nav-item
+            a#pills-profile-tab.nav-link(data-toggle='pill' href='/register/washer' role='tab' aria-controls='pills-profile' aria-selected='false')
+                span Register Washer
+        li.nav-item
+            a#pills-contact-tab.nav-link(data-toggle='pill' href='/register/expenses' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Add Expenses
+        li.nav-item
+            a#pills-contact-tab.nav-link(data-toggle='pill' href='/reports/collection' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Reports 
+    span.navbar-text
+        a.nav-link(href='/')
+            span  Sign Out
+    #pills-tabContent.tab-content
+block content 
+    div.row.d-flex.justify-content-center
+        div.col-md-6.car-container
+            if alert == "success"
+                    div.alert.alert-success Car added successfully
+            if alert == "error"
+                div.alert.alert-danger An error occurred, failed to add washer
+            form.car-form(method="POST" action='/register/car' name='register-car')
+                h4  Register Car
+                div.form-row             
+                    div.form-group.col-8
+                        input.form-control(type="numberplate" name='numberplate' placeholder="Numberplate" )
+                    div.form-group.col-4
+                        input.form-control(type="colour" placeholder="color" name="color")
+                div.form-row             
+                    div.form-group.col
+                        input.form-control(type="make" placeholder="make" name="make")
+                    div.form-group.col
+                        input.form-control(type="type" placeholder="type" name="type")
+                div.form-row             
+                    div.form-group.col
+                        input.form-control(type="time" placeholder="time" name="toa")
+                    div.form-group.col
+                        input.form-control(type="date" placeholder="date" name="doa")
+                div.form-row
+                    div.form-group.col
+                        //- select.custom-select.my-1.mr-sm-2
+                        select.custom-select.my-1.mr-sm-2(name="package")
+                            option Select Package
+                            option(value="smallcars")  Small cars(10,000/=)
+                            option(value="medium") Medium(15,000/=)
+                            option(value="fullwash") Full wash(20,000/=)
+                            option(value="bodaboda") Boda-boda(5,000/=)
+                            option(value="engine") Engine(10,000/=)
+                div.form-row
+                    div.form-group.col
+                        select.form-control(name="washer")
+                            option Select Washer
+                            each washer in washers
+                                option(value=washer._id) #{washer.firstname +' '+ washer.lastname}
+                div.form-row
+                    div.col.form-group
+                        button.btn.btn-primary.btn-block(type="submit") submit
+block footer
+    p.zfooter © ZaWash 2021

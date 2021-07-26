@@ -1,0 +1,46 @@
+extends layout2.pug
+block header
+    ul#pills-tab.navbar-nav.mr-auto.justify-content-center.nav.nav-pills.mb-3(role="tablist")
+        li.nav-item
+            a#pills-home-tab.nav-link(data-toggle='pill' href='/register/car' role='tab' aria-controls='pills-home' aria-selected='true')
+                span Register Car
+        li.nav-item
+            a#pills-profile-tab.nav-link(data-toggle='pill' href='/register/washer' role='tab' aria-controls='pills-profile' aria-selected='false')
+                span Register Washer
+        li.nav-item
+            a#pills-contact-tab.nav-link.active(data-toggle='pill' href='/register/expenses' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Add Expenses
+        li.nav-item
+            a#pills-contact-tab.nav-link(data-toggle='pill' href='/reports/collection' role='tab' aria-controls='pills-contact' aria-selected='false')
+                span Reports 
+    span.navbar-text
+        a.nav-link(href='/')
+            span  Sign Out
+    #pills-tabContent.tab-content
+block content
+    div.row.d-flex.justify-content-center 
+        div.col-md-6
+            br
+            if alert == "success"
+                div.alert.alert-success Expense added successfully
+            if alert == "error"
+                div.alert.alert-danger An error occurred, failed to add expenses
+            form(method="POST" action='/register/expenses')
+                h4  Add Expenses
+                div.form-row
+                    div.col.form-group
+                        label Item type
+                        select.form-control(name="item")
+                            option(value="polish")  Polish
+                            option(value="detergent") Powdered detergents
+                            option(value="electricity") Electricity units
+                    div.col.form-group
+                        label Amount
+                        input.form-control(type="number" name="amount")
+                div.form-row
+                    div.col.form-group
+                        label Date of Entry
+                        input.form-control(type="date" name="doe")
+                div.form-row
+                    div.col.form-group
+                        button.btn.btn-primary.btn-block Add expense

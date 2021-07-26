@@ -1,0 +1,19 @@
+doctype html
+html
+
+    head
+        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/style.css")
+        title= title
+    body(style="background-color: #0d0c0c;")
+        div.navigation
+            div.container
+                nav.navbar.navbar-dark.navbar-expand.container-fluid
+                    a.navbar-brand(href='/') ZaWash 
+                    block header
+        div.container
+            block content
+
+            footer.text-center
+                block footer
+        script(src="validation.js")

@@ -14,7 +14,7 @@ const passport = require('passport');
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false 
 });
 
 // INSTANTIATIONS
@@ -22,18 +22,8 @@ const expressSession = require('express-session')({
 const app = express();
 
 //mongodb connection
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-mongoose.connection
-  .on('open', () => {
-    console.log('Mongoose connection open');
-  })
-  .on('error', (err) => {
-    console.log(`Connection error: ${err.message}`);
-});
 
 // CONFIGURATIONS
 app.locals.moment = moment

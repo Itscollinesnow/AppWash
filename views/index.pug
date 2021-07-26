@@ -6,19 +6,22 @@ block header
             span  Register 
 block content
     div.intro
-        h2 ZaWash car wash Management
+        h2 
     div.row.d-flex.justify-content-center
         div.col-md-5.col-md-offset-5
             if alert == "error"
-                div.alert.alert-danger An error occurred, invalid username or password
+                div.alert.alert-danger ERROR! username or password is incorrect!
             form.login-form.align-center(method="POST" action='/login')
-                h4 Please Log In
+                h4 Login into your account
                 div.form-group.col
                     input.form-control(type="username" name='username' placeholder="Username")
                 div.form-group.col
                     input.form-control(type="password" placeholder="Password" name='password')
                 div.form-group.col
                     button.btn.btn-sm.btn-primary.login-bt(type="submit") Login
+                div.form-group.col 
+                    
+                    
     div.service-cards
         div.row
             div.card.col
@@ -38,4 +41,4 @@ block content
                     h5.card-title Expenses 
                     p.card-text Track by recording and keeping an expense report       
 block footer
-        p.zfooter © ZaWash 2021 | Contact Support
+        p.zfooter © Roadmap Digital Systems 2021 | Contact Support | External links to other Internet sites should not be construed as an endorsement of the views or privacy policies contained therein.

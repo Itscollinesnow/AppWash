@@ -17,7 +17,7 @@ form h4 {
     padding-top: 30px;
 }
 .navigation{
-    background-color:#dd2922;
+    background-color:#1d0404;
 
 }
 .navbar {
@@ -55,13 +55,13 @@ form h4 {
     color: #fff;
 }
 .login-bt {
-    float: right;
-    background-color:#dd2922;
+    float: center;
+    background-color:#1d0404;
     width: 80px;
-    border-color: #dd2922;
+    border-color: #1d0404;
 }
 .reg-body {
-    background : url(../../images/background-image2.jpg);
+    background : url(../../images/carbay.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 

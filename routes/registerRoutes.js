@@ -54,8 +54,7 @@ router.post("/car", async(req, res) => {
 
     // create a model of data and save to db
         const car = new Car(data);
-        console.log('car')
-        console.log(car)
+        console.log(req.body)
         await car.save()
         res.redirect('car?alert=success')
     }

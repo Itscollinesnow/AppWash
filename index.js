@@ -43,13 +43,13 @@ passport.use(Manager.createStrategy());
 passport.serializeUser(Manager.serializeUser());
 passport.deserializeUser(Manager.deserializeUser());
 
-var loginChecker = function (req, res, next) {
-  if (req.path != '/login' && req.path !='/register' && !req.session.user) {
-    res.redirect('/login')
-  }
-  next()
-}
-app.use(loginChecker)
+// var loginChecker = function (req, res, next) {
+//   if (req.path != '/login' && req.path !='/register' && !req.session.user) {
+//     res.redirect('/login')
+//   }
+//   next()
+// }
+// app.use(loginChecker)
 
 // ROUTES
 app.use('/', homeRoute)
@@ -66,4 +66,4 @@ app.get('*', (req, res)=> {
 })
 
 // BOOTSRRAPPING SERVER
-app.listen(3000, () => console.log('listening on port 3000'));
+app.listen(3700, () => console.log('listening on port 3700'));
